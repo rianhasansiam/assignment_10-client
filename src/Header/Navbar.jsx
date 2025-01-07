@@ -54,7 +54,7 @@ const [theme , setTheme]=useState(localStorage.getItem("theme")? localStorage.ge
 
   
   return (
-    <div className="navbar bg-base-100 container mx-auto py-5 ">
+    <div className="navbar bg-base-100 lg:px-32 mx-auto py-5 sticky top-0 z-20">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -78,9 +78,18 @@ const [theme , setTheme]=useState(localStorage.getItem("theme")? localStorage.ge
 
         <li><NavLink to="/">Home</NavLink></li>
       <li><NavLink to="/all-visas">All Visas</NavLink></li>
-      <li><NavLink to="/add-visa">Add Visa</NavLink></li>
-      <li><NavLink to="/my-added-visas">My Added Visas</NavLink></li>
-      <li><NavLink to="/my-visa-applications">My Visa Applications</NavLink></li>
+      {userData ? (
+  <>
+    <li><NavLink to="/add-visa">Add Visa</NavLink></li>
+    <li><NavLink to="/my-added-visas">My Added Visas</NavLink></li>
+    <li><NavLink to="/my-visa-applications">My Visa Applications</NavLink></li>
+  </>
+) : null}
+
+
+      <li><NavLink to="/aboutUs">About Us</NavLink></li>
+      {userData?null:<li><NavLink to="/ContactUs">Contact Us</NavLink></li>}
+      
       {
         userData?<li><button className='   font-semibold    text-red-400  ' onClick={signoutHandle}>LogOut</button></li>
         :
@@ -102,9 +111,19 @@ const [theme , setTheme]=useState(localStorage.getItem("theme")? localStorage.ge
     <ul className="menu menu-horizontal px-1 font-semibold">
     <li><NavLink to="/">Home</NavLink></li>
       <li><NavLink to="/all-visas">All Visas</NavLink></li>
-      <li><NavLink to="/add-visa">Add Visa</NavLink></li>
-      <li><NavLink to="/my-added-visas">My Added Visas</NavLink></li>
-      <li><NavLink to="/my-visa-applications">My Visa Applications</NavLink></li>
+
+      {userData ? (
+  <>
+    <li><NavLink to="/add-visa">Add Visa</NavLink></li>
+    <li><NavLink to="/my-added-visas">My Added Visas</NavLink></li>
+    <li><NavLink to="/my-visa-applications">My Visa Applications</NavLink></li>
+  </>
+) : null}
+
+
+
+<li><NavLink to="/aboutUs">About Us</NavLink></li>
+{userData?null:<li><NavLink to="/ContactUs">Contact Us</NavLink></li>}
      
     </ul>
   </div>
