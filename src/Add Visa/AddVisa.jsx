@@ -11,7 +11,7 @@ const AddVisa = () => {
 const navigate=useNavigate()
 
 
-  const {uiupdateHandle,userData}=useContext(contextData)
+  const {uiupdateHandle,userData,dataTheme}=useContext(contextData)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -75,7 +75,7 @@ const navigate=useNavigate()
 
 
   return (
-    <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg my-12">
+    <div className={`max-w-2xl mx-auto ${dataTheme? 'bg-black text-white':'bg-white'} p-8 rounded-lg shadow-lg my-12`}>
     <h1 className="text-2xl font-bold text-center mb-6">Add Visa</h1>
 
 
@@ -230,7 +230,7 @@ const navigate=useNavigate()
 
 
         {/* Required Documents (Checkboxes) */}
-        <div className="mb-4">
+        <div className="mb-4 ">
         <label className="block font-semibold mb-1">Required Documents</label>
        
           <div  className="flex items-center mb-2">

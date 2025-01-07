@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 
 const SingleApplication = ({singleDatavisa}) => {
     
-const {setReloadDeleteapply}=useContext(contextData)
+const {setReloadDeleteapply,dataTheme}=useContext(contextData)
 const {userName,userEmail,imageUrl,country,visaType,processingTime,fee,validity,applicationMethod,_id,date}=singleDatavisa
 
 
@@ -32,7 +32,7 @@ const handleDelteUser=()=>{
       
 
         
-          <div  className="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow " >
+          <div  className={` ${dataTheme?'bg-black text-white':'bg-white'} rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow `} >
             {/* Country Image */}
             <img
               src={imageUrl}
@@ -43,28 +43,28 @@ const handleDelteUser=()=>{
             {/* Visa Details */}
             <div className="mt-4">
               <h2 className="text-xl font-semibold">{country}</h2>
-              <p className="text-sm text-gray-600 mb-2">
+              <p className={`${dataTheme?'text-gray-400':'text-gray-600'} text-sm  mb-2`}>
                 <strong>Visa Type:</strong> {visaType}
               </p>
-              <p className="text-sm text-gray-600 mb-2">
+              <p className={`${dataTheme?'text-gray-400':'text-gray-600'} text-sm  mb-2`}>
                 <strong>Processing Time:</strong> {processingTime}
               </p>
-              <p className="text-sm text-gray-600 mb-2">
+              <p className={`${dataTheme?'text-gray-400':'text-gray-600'} text-sm  mb-2`}>
                 <strong>Fee:</strong>${fee}
               </p>
-              <p className="text-sm text-gray-600 mb-2">
+              <p className={`${dataTheme?'text-gray-400':'text-gray-600'} text-sm  mb-2`}>
                 <strong>Validity:</strong> {validity}
               </p>
-              <p className="text-sm text-gray-600 mb-2">
+              <p className={`${dataTheme?'text-gray-400':'text-gray-600'} text-sm  mb-2`}>
                 <strong>Application Method:</strong> {applicationMethod}
               </p>
-              <p className="text-sm text-gray-600 mb-2">
+              <p className={`${dataTheme?'text-gray-400':'text-gray-600'} text-sm  mb-2`}>
                 <strong>Applied Date:</strong> {date}
               </p>
-              <p className="text-sm text-gray-600 mb-2">
+              <p className={`${dataTheme?'text-gray-400':'text-gray-600'} text-sm  mb-2`}>
                 <strong>Applicant's Name:</strong> {userName}
               </p>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className={`${dataTheme?'text-gray-400':'text-gray-600'} text-sm  mb-2`}>
                 <strong>Applicant's Email:</strong> {userEmail}
               </p>
 

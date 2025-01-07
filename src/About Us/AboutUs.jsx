@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { contextData } from '../Contex';
 
 const AboutUs = () => {
+    const {dataTheme}=useContext(contextData)
   return (
     <div className="bg-gradient-to-r from-purple-500 to-indigo-500 min-h-screen flex items-center justify-center">
-      <div className="bg-white shadow-lg rounded-lg p-10 max-w-4xl text-center">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">About Us</h1>
-        <p className="text-xl text-gray-600 mb-6">
+      <div className={`${dataTheme?'bg-black text-white':'bg-white'} shadow-lg rounded-lg p-10 max-w-4xl text-center`}>
+        <h1 className={`text-4xl font-bold ${dataTheme?'text-white':'text-gray-800'} mb-4`}>About Us</h1>
+        <p className={`${dataTheme?'text-gray-400':'text-gray-800'} text-xl text-gray-600 mb-6`}>
           Welcome to our website! Our mission is to provide the best services and help you navigate through
           your visa requirements effortlessly. We are dedicated to ensuring a smooth and seamless experience
           for every visitor. Our team is constantly working to bring you the most up-to-date information and
@@ -15,22 +17,22 @@ const AboutUs = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-4">
             <img src="https://i.ibb.co.com/T4KLpsP/download.jpg" alt="Vision" className="rounded-full mx-auto mb-4"/>
-            <h3 className="text-lg font-semibold text-gray-700">Our Vision</h3>
-            <p className="text-gray-500">
+            <h3 className={`text-lg font-semibold ${dataTheme?'text-white':'text-gray-800'}`}>Our Vision</h3>
+            <p className={`${dataTheme?'text-gray-400':'text-gray-800'}`}>
               To be the leading platform for visa applications, ensuring a hassle-free process for all.
             </p>
           </div>
           <div className="p-4">
             <img src="https://i.ibb.co.com/PTQ8jFf/download-1.jpg" alt="Mission" className="rounded-full mx-auto mb-4"/>
-            <h3 className="text-lg font-semibold text-gray-700">Our Mission</h3>
-            <p className="text-gray-500">
+            <h3 className={`text-lg font-semibold ${dataTheme?'text-white':'text-gray-800'}`}>Our Mission</h3>
+            <p className={`${dataTheme?'text-gray-400':'text-gray-800'}`}>
               Simplify the visa application process and provide real-time updates on your application status.
             </p>
           </div>
           <div className="p-4">
             <img src="https://i.ibb.co.com/txJ9jpb/download-2.jpg" alt="Team" className="rounded-full mx-auto mb-4"/>
-            <h3 className="text-lg font-semibold text-gray-700">Our Team</h3>
-            <p className="text-gray-500">
+            <h3 className={`text-lg font-semibold ${dataTheme?'text-white':'text-gray-800'}`}>Our Team</h3>
+            <p className={`${dataTheme?'text-gray-400':'text-gray-800'}`}>
               We have a diverse team of professionals working tirelessly to bring you the best service.
             </p>
           </div>

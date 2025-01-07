@@ -5,7 +5,7 @@ import { contextData } from '../Contex';
 import EditMyVisa from './EditMyVisa';
 
 const MyvisaCard = ({ visaData }) => {
-  const { setReloadDelete } = useContext(contextData);
+  const { setReloadDelete ,dataTheme } = useContext(contextData);
   const { imageUrl, country, visaType, processingTime, fee, validity, applicationMethod, _id } = visaData;
 
   const [singleVisaData,SetSingleVisaData]=useState({})
@@ -34,18 +34,18 @@ const MyvisaCard = ({ visaData }) => {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-6 mb-4">
+    <div className={`${dataTheme? 'bg-black text-white':'bg-white'} shadow-lg rounded-lg p-6 mb-4`}>
       <img
         src={imageUrl}
         alt={country}
         className="w-full h-32 object-cover rounded-md mb-4"
       />
       <h2 className="text-3xl font-bold mb-2">{country}</h2>
-      <p className="text-sm text-gray-700"><span className="font-semibold">Visa Type: </span>{visaType}</p>
-      <p className="text-sm text-gray-700"><span className="font-semibold">Processing Time: </span>{processingTime}</p>
-      <p className="text-sm text-gray-700"><span className="font-semibold">Fee: </span>${fee}</p>
-      <p className="text-sm text-gray-700"><span className="font-semibold">Validity: </span>{validity}</p>
-      <p className="text-sm text-gray-700"><span className="font-semibold">Application Method: </span>{applicationMethod}</p>
+      <p className={`text-sm ${dataTheme?'text-gray-300':'text-gray-700'}`}><span className="font-semibold">Visa Type: </span>{visaType}</p>
+      <p className={`text-sm ${dataTheme?'text-gray-300':'text-gray-700'}`}><span className="font-semibold">Processing Time: </span>{processingTime}</p>
+      <p className={`text-sm ${dataTheme?'text-gray-300':'text-gray-700'}`}><span className="font-semibold">Fee: </span>${fee}</p>
+      <p className={`text-sm ${dataTheme?'text-gray-300':'text-gray-700'}`}><span className="font-semibold">Validity: </span>{validity}</p>
+      <p className={`text-sm ${dataTheme?'text-gray-300':'text-gray-700'}`}><span className="font-semibold">Application Method: </span>{applicationMethod}</p>
 
       <button 
         onClick={() => navigate(`/visa-details/${_id}`)} 
